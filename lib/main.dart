@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart'; //unlocks a lot of feature
+import 'package:flutter/material.dart'; //unlocks a lot of feature
+import './question.dart';
 
 // void main() {
 //   runApp(MyApp()); //normal function written by flutter team
@@ -66,7 +66,8 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
+            //replace Text to Question from question.dart
+            Question(
               questions[_questionIndex],
             ),
             RaisedButton(
