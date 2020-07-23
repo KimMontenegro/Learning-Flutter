@@ -44,11 +44,17 @@ class MyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: answerQuestion,
+              onPressed: () => print('Answer 2 chosen!'),
+
+              ///() is anon
+              ///It has no name and can only be used in the place
             ),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: answerQuestion,
+              onPressed: () {
+                //..
+                print('Answer 3 chosen');
+              },
             ),
           ],
         ),
