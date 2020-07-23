@@ -13,14 +13,15 @@ class Question extends StatelessWidget {
     //wrap another widget(Text) called Container
     //Container takes a child name argument
     return Container(
-
-        ///infinity - will set and adjust based on the
-        ///full width of the device
-        width: double.infinity,
-        child: Text(
-          questionText,
-          style: TextStyle(fontSize: 28),
-          textAlign: TextAlign.center,
-        ));
+      ///infinity - will set and adjust based on the
+      ///full width of the device
+      width: double.infinity,
+      margin: EdgeInsets.all(10),
+      child: Text(
+        questionText,
+        style: TextStyle(fontSize: 28),
+        textAlign: TextAlign.center,
+      ),
+    );
   }
 }
