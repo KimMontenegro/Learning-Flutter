@@ -20,17 +20,17 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
 //MyAppState - widgetname+State
 //State is a generic class and is attached to the class above
 //State<MyApp> is an indicator that State belongs to the class above
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0; //to change dynamically when pressing a button
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0; //to change dynamically when pressing a button
 
-  void answerQuestion() {
+  void _answerQuestion() {
     ///wrap the code when changing data that is reflected in UI
     ///wrap it using setState
     ///setState is a function/method provided by State class which we inherit
@@ -39,9 +39,9 @@ class MyAppState extends State<MyApp> {
       ///to use old value in questionIndex & add 1 to it
       ///overwritten the questionIndex after calculating
       ///pass this to State class
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   //BuildContext - annotation provided by flutter
@@ -67,11 +67,11 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Text(
-              questions[questionIndex],
+              questions[_questionIndex],
             ),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: answerQuestion, //execute when user presses the button
+              onPressed: _answerQuestion, //execute when user presses the button
             ),
             RaisedButton(
                 child: Text('Answer 2'),
