@@ -11,25 +11,29 @@ void main() => runApp(MyApp()); //if only 1 line of code
 ///as widget in Flutter
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0; //to change dynamically when pressing a button
   void answerQuestion() {
-    print('Answer Chosen!');
+    ///to use old value in questionIndex & add 1 to it
+    ///overwritten the questionIndex after calculating
+    questionIndex = questionIndex + 1;
+    print(questionIndex);
   }
 
   ///BuildContext - annotation provided by flutter
   ///build-method that returns a Widget
-  //MaterialApp-special widget that should be returned
+  ///MaterialApp-special widget that should be returned
   @override //decorator-make the code clearer and cleaner
   Widget build(BuildContext context) {
+    var questions = [
+      'What\'s your favorite color?',
+      'What\'s your favorite animal?',
+    ];
+
     ///home: - argument; the core widget w/c flutter will bring
     ///on the screen
     ///MaterialApp is a class and yet we can pass data to it
     ///with a feature called constructor
     ///Scaffold()-creating a basic page design like colors
-
-    var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
-    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             Text(
-              questions[0],
+              questions[questionIndex],
             ),
             RaisedButton(
               child: Text('Answer 1'),
