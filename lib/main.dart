@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; //unlocks a lot of feature
 import './question.dart';
+import './answer.dart';
 
 // void main() {
 //   runApp(MyApp()); //normal function written by flutter team
@@ -70,24 +71,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: _answerQuestion, //execute when user presses the button
-            ),
-            RaisedButton(
-                child: Text('Answer 2'),
-                onPressed: () => print('Answer 2 chosen!')
-
-                ///() is anon
-                ///It has no name and can only be used in the place
-                ),
-            RaisedButton(
-              child: Text('Answer 3'),
-              onPressed: () {
-                //..
-                print('Answer 3 chosen');
-              },
-            ),
+            Answer(),
+            Answer(),
+            Answer(),
           ],
         ),
       ),
