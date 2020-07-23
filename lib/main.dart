@@ -37,18 +37,20 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text('The question!'),
+            Text(
+              questions.elementAt(0),
+            ),
             RaisedButton(
               child: Text('Answer 1'),
               onPressed: answerQuestion, //execute when user presses the button
             ),
             RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer 2 chosen!'),
+                child: Text('Answer 2'),
+                onPressed: () => print('Answer 2 chosen!')
 
-              ///() is anon
-              ///It has no name and can only be used in the place
-            ),
+                ///() is anon
+                ///It has no name and can only be used in the place
+                ),
             RaisedButton(
               child: Text('Answer 3'),
               onPressed: () {
