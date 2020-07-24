@@ -29,9 +29,26 @@ class MyApp extends StatefulWidget {
 //State is a generic class and is attached to the class above
 //State<MyApp> is an indicator that State belongs to the class above
 class _MyAppState extends State<MyApp> {
+  final questions = const [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'What\'s your favorite instructor?',
+      'answers': ['Max', 'Max', 'Max', 'Max'],
+    },
+  ];
   var _questionIndex = 0; //to change dynamically when pressing a button
 
   void _answerQuestion() {
+    // var aBool = true;
+    // aBool =false;
+
     ///wrap the code when changing data that is reflected in UI
     ///wrap it using setState
     ///setState is a function/method provided by State class which we inherit
@@ -42,7 +59,9 @@ class _MyAppState extends State<MyApp> {
       ///pass this to State class
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex);
+    if (_questionIndex < questions.length) {
+      print('We have more questions!');
+    }
   }
 
   //BuildContext - annotation provided by flutter
@@ -50,21 +69,6 @@ class _MyAppState extends State<MyApp> {
   //MaterialApp-special widget that should be returned
   @override //decorator-make the code clearer and cleaner
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite color?',
-        'answers': ['Black', 'Red', 'Green', 'White'],
-      },
-      {
-        'questionText': 'What\'s your favorite animal?',
-        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
-      },
-      {
-        'questionText': 'What\'s your favorite instructor?',
-        'answers': ['Max', 'Max', 'Max', 'Max'],
-      },
-    ];
-
     ///home: - argument; the core widget w/c flutter will bring
     ///on the screen
     ///MaterialApp is a class and yet we can pass data to it
