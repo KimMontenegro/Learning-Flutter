@@ -79,12 +79,13 @@ class _MyAppState extends State<MyApp> {
           children: [
             //replace Text to Question from question.dart
             Question(
-              questions[_questionIndex]['questiontext'], //accessing index number then the question
+              questions[_questionIndex]
+                  ['questionText'], //accessing index number then the question
             ),
-            ...(questions [_questionIndex]['answers'] as List<String>)
+            ...(questions[_questionIndex]['answers'] as List<String>)
                 .map((answer) {
-              return Answer(_answerQuestion, answer):
-            }).toList()//convert map to a list
+              return Answer(_answerQuestion, answer);
+            }).toList() //convert map to a list
           ],
         ),
       ),
