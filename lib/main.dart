@@ -81,8 +81,8 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex]['questiontext'], //accessing index number then the question
             ),
-            ...(questions [_questionIndex]['answers'] as List<String>.map((answer) 
-            {
+            ...(questions [_questionIndex]['answers'] as List<String>)
+                .map((answer) {
               return Answer(_answerQuestion, answer):
             }).toList()//convert map to a list
           ],
