@@ -51,8 +51,18 @@ class _MyAppState extends State<MyApp> {
   @override //decorator-make the code clearer and cleaner
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answers': ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      },
+      {
+        'questionText': 'What\'s your favorite instructor?',
+        'answers': ['Max', 'Max', 'Max', 'Max'],
+      },
     ];
 
     ///home: - argument; the core widget w/c flutter will bring
@@ -69,11 +79,12 @@ class _MyAppState extends State<MyApp> {
           children: [
             //replace Text to Question from question.dart
             Question(
-              questions[_questionIndex],
+              questions[_questionIndex]['questiontext'], //accessing index number then the question
             ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            ...(questions [_questionIndex]['answers'] as List<String>.map((answer) 
+            {
+              return Answer(_answerQuestion, answer):
+            }).toList()//convert map to a list
           ],
         ),
       ),
