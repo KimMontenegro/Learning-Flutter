@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'; //unlocks a lot of feature
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 // void main() {
 //   runApp(MyApp()); //normal function written by flutter team
@@ -29,7 +29,7 @@ class MyApp extends StatefulWidget {
 //State is a generic class and is attached to the class above
 //State<MyApp> is an indicator that State belongs to the class above
 class _MyAppState extends State<MyApp> {
-  final questions = const [
+  final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
       'answers': ['Black', 'Red', 'Green', 'White'],
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
       ///pass this to State class
       _questionIndex = _questionIndex + 1;
     });
-    if (_questionIndex < questions.length) {
+    if (_questionIndex < _questions.length) {
       print('We have more questions!');
     }
   }
@@ -79,19 +79,12 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(
-          children: [
-            //replace Text to Question from question.dart
-            Question(
-              questions[_questionIndex]
-                  ['questionText'], //accessing index number then the question
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList() //convert map to a list
-          ],
-        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions)
+            : Result(),
       ),
     );
   }
